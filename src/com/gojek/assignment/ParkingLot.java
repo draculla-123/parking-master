@@ -96,5 +96,39 @@ public class ParkingLot {
         }
     }
 
+    public void getStatus() {
+        if (totalSlots == 0) {
+            System.out.println("Sorry, parking lot is not created");
+        } else if (carSlot.size() > 0) {
+            System.out.println("Slot No.\t\tRegistration No.\t\tColor");
+            Car car;
+            for (int i = 1; i <= totalSlots; i++) {
+                if (carSlot.containsKey(i)) {
+                    car = carSlot.get(i);
+                    System.out.println(i + "\t \t \t " + car.getRegistrationNo() + "\t \t \t" + car.getColor());
+                }
+            }
+        } else {
+            System.out.println("Parking lot is empty");
+        }
+    }
+
+    public void getRegistrationNumbersFromColor(String color) {
+        if (totalSlots == 0) {
+            System.out.println("Sorry, parking lot is not created");
+        } else if (colorCarMap.containsKey(color)) {
+            List<String> regNoList = colorCarMap.get(color);
+            for (int i = 0; i < regNoList.size(); i++) {
+                if (!(i == regNoList.size() - 1)) {
+                    System.out.print(regNoList.get(i) + " ,");
+                } else {
+                    System.out.print(regNoList.get(i));
+                }
+            }
+            System.out.println();
+        } else {
+            System.out.println("Not found");
+        }
+    }
 
 }
