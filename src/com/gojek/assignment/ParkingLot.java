@@ -130,5 +130,40 @@ public class ParkingLot {
             System.out.println("Not found");
         }
     }
+    
+
+    
+    public void getSlotNumberFromRegNo(String regNo) {
+        if (totalSlots == 0) {
+            System.out.println("Sorry, parking lot is not created");
+        } else if (registrationNoCarSlot.containsKey(regNo)) {
+            System.out.println(registrationNoCarSlot.get(regNo));
+        } else {
+            System.out.println("Not found");
+        }
+    }
+
+    public void getSlotNumbersFromColor(String color) {
+        if (totalSlots == 0) {
+            System.out.println("Sorry, parking lot is not created");
+        } else if (colorCarMap.containsKey(color)) {
+            List<String> regNoList = colorCarMap.get(color);
+            List<Integer> slotList = new ArrayList<Integer>();
+            for (int i = 0; i < regNoList.size(); i++) {
+                slotList.add(registrationNoCarSlot.get(regNoList.get(i)));
+            }
+            Collections.sort(slotList);
+            for (int j = 0; j < slotList.size(); j++) {
+                if (!(j == slotList.size() - 1)) {
+                    System.out.print(slotList.get(j) + " ,");
+                } else {
+                    System.out.print(slotList.get(j));
+                }
+            }
+            System.out.println();
+        } else {
+            System.out.println("Not found");
+        }
+    }
 
 }
