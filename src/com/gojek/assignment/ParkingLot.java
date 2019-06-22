@@ -131,8 +131,6 @@ public class ParkingLot {
         }
     }
     
-
-    
     public void getSlotNumberFromRegNo(String regNo) {
         if (totalSlots == 0) {
             System.out.println("Sorry, parking lot is not created");
