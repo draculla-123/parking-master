@@ -163,5 +163,4 @@ public class ParkingLot {
             System.out.println("Not found");
         }
     }
-
 }
